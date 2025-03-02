@@ -33,10 +33,11 @@
       border-radius: 10px;
       width: 90%;
       max-width: 500px;
+      z-index: 1001;
     }
 
     .hidden {
-      display: none;
+      display: none !important;
     }
   </style>
   <!-- Native CSS END -->
@@ -209,9 +210,21 @@
   <!-- Native JS Start -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Clear localStorage for testing (remove this in production)
+      // localStorage.removeItem('userInfo');
+      
       // Check if it's the first visit
       if (!localStorage.getItem('userInfo')) {
-        document.getElementById('setupOverlay').classList.remove('hidden');
+        showSetupOverlay();
+      }
+      
+      function showSetupOverlay() {
+        const overlay = document.getElementById('setupOverlay');
+        if (overlay) {
+          overlay.classList.remove('hidden');
+        } else {
+          console.error("Setup overlay element not found");
+        }
       }
 
       // Add more contacts button
@@ -326,7 +339,7 @@
           document.getElementById('contactsContainer').appendChild(contactDiv);
         }
         
-        document.getElementById('setupOverlay').classList.remove('hidden');
+        showSetupOverlay();
       });
 
       // Emergency buttons
