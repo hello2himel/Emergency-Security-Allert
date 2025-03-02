@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Native CSS Start -->
+  <!-- External Styles -->
   <link rel="stylesheet" href="/css/index.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;500;600;700&display=swap');
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/94b68a0c09.js" crossorigin="anonymous"></script>
 
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;500;600;700&display=swap">
+
+  <title>নিরাপত্তা বলয়</title>
+
+  <style>
     * {
       font-family: 'Noto Serif Bengali', serif;
       font-weight: 700;
@@ -21,10 +27,10 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
       display: flex;
       justify-content: center;
       align-items: center;
+      z-index: 1000;
     }
 
     .modal {
@@ -33,26 +39,16 @@
       border-radius: 10px;
       width: 90%;
       max-width: 500px;
-      z-index: 1001;
     }
 
     .hidden {
       display: none !important;
     }
   </style>
-  <!-- Native CSS END -->
-
-  <!-- Bootstrap CSS Start -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <!-- Bootstrap CSS End -->
-
-  <!-- Icon Pack Start -->
-  <script src="https://kit.fontawesome.com/94b68a0c09.js" crossorigin="anonymous"></script>
-  <!-- Icon Pack End -->
-  <title>নিরাপত্তা বলয়</title>
 </head>
 <body>
-  <!-- First-time setup overlay -->
+
+  <!-- First-time Setup Overlay -->
   <div id="setupOverlay" class="overlay hidden">
     <div class="modal">
       <h2 class="mb-4">প্রাথমিক সেটআপ</h2>
@@ -66,8 +62,8 @@
           <div class="mb-3">
             <label class="form-label">জরুরি যোগাযোগের নম্বর #1</label>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="নাম" id="contactName1" required>
-              <input type="tel" class="form-control" placeholder="ফোন নম্বর" id="contactPhone1" required>
+              <input type="text" class="form-control" placeholder="নাম" required>
+              <input type="tel" class="form-control" placeholder="ফোন নম্বর" required>
             </div>
           </div>
         </div>
@@ -86,112 +82,43 @@
     </div>
   </div>
 
-  <div class="w-100">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid my-auto">
-        <p class="navbar-brand h1 mb-0">
-          নিরাপত্তা বলয়
-        </p>
-        <div>
-          <button class="btn btn-primary me-2" id="editContactsBtn"><i class="fa-solid fa-address-book pe-2"></i>জরুরি নম্বর</button>
-          <button class="btn btn-danger" onclick="location.href = 'https://himeeeelll.netlify.app';"><i class="fa-solid fa-circle-info pe-2"></i>বিস্তারিত</button>
-        </div>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <p class="navbar-brand h1 mb-0">নিরাপত্তা বলয়</p>
+      <div>
+        <button class="btn btn-primary me-2" id="editContactsBtn"><i class="fa-solid fa-address-book pe-2"></i>জরুরি নম্বর</button>
+        <button class="btn btn-danger" onclick="location.href='https://himeeeelll.netlify.app';">
+          <i class="fa-solid fa-circle-info pe-2"></i>বিস্তারিত
+        </button>
       </div>
-    </nav>
-  </div>
-  <main class="p-3 d-block mx-auto" style="max-width:400px;">
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="p-3 mx-auto" style="max-width: 400px;">
+    <h1 class="fs-1 text-center mb-4">আপনি কোন বিষয়ে সহায়তা চান?</h1>
+
     <div class="container">
-      <div class="row">
-        <div class="col-12 mb-2">
-          <h1 class="fs-1" style="font-weight:800;">আপনি কোন বিষয়ে সহায়তা চান?</h1>
-        </div>
-      </div>
-      <div class="row my-3" style="height:15vh;">
+      <div class="row g-3">
         <div class="col-6">
           <button class="btn btn-danger w-100 h-100 emergency-btn" data-emergency-type="নির্যাতন প্রতিরোধ">
-            <div class="row">
-              <div class="col-4">
-                <i class="fa-3x fa-solid fa-bell"></i>
-              </div>
-              <div class="col-8">
-                নির্যাতন প্রতিরোধ
-              </div>
-            </div>
+            <i class="fa-3x fa-solid fa-bell"></i> <br> নির্যাতন প্রতিরোধ
           </button>
         </div>
         <div class="col-6">
           <button class="btn btn-warning w-100 h-100 emergency-btn" data-emergency-type="সড়ক দুর্ঘটনা">
-            <div class="row">
-              <div class="col-4">
-                <i class="fa-3x fa-solid fa-car-burst"></i>
-              </div>
-              <div class="col-8">
-                সড়ক দুর্ঘটনা
-              </div>
-            </div>
+            <i class="fa-3x fa-solid fa-car-burst"></i> <br> সড়ক দুর্ঘটনা
           </button>
         </div>
-      </div>
-      <div class="row my-3" style="height:15vh;">
         <div class="col-8">
           <button class="btn btn-primary w-100 h-100 emergency-btn" data-emergency-type="জরুরি অ্যাম্বুলেন্স সেবা">
-            <div class="row">
-              <div class="col-4">
-                <i class="fa-3x fa-solid fa-truck-medical"></i>
-              </div>
-              <div class="col-8">
-                জরুরি অ্যাম্বুলেন্স সেবা
-              </div>
-            </div>
+            <i class="fa-3x fa-solid fa-truck-medical"></i> <br> জরুরি অ্যাম্বুলেন্স সেবা
           </button>
         </div>
         <div class="col-4">
           <button class="btn btn-danger w-100 h-100 emergency-btn" data-emergency-type="অগ্নিকাণ্ড">
-            <div class="row">
-              <div class="col-12">
-                <i class="fa-3x fa-solid fa-fire-extinguisher"></i>
-              </div>
-            </div>
-          </button>
-        </div>
-      </div>
-      <div class="row my-3" style="height:15vh;">
-        <div class="co-12">
-          <button class="btn btn-dark w-100 h-100 emergency-btn" data-emergency-type="জরুরি পুলিশ সহায়তা">
-            <div class="row">
-              <div class="col-4">
-                <i class="fa-3x fa-solid fa-handcuffs"></i>
-              </div>
-              <div class="col-8">
-                জরুরি<br>পুলিশ সহায়তা
-              </div>
-            </div>
-          </button>
-        </div>
-      </div>
-      <div class="row my-3" style="height:15vh;">
-        <div class="col-6">
-          <button class="btn btn-warning w-100 h-100 emergency-btn" data-emergency-type="জঙ্গী আক্রমণ">
-            <div class="row">
-              <div class="col-4">
-                <i class="fa-3x fa-solid fa-user-ninja"></i>
-              </div>
-              <div class="col-8">
-                জঙ্গী আক্রমণ
-              </div>
-            </div>
-          </button>
-        </div>
-        <div class="col-6">
-          <button class="btn btn-info w-100 h-100 emergency-btn" data-emergency-type="নৌকাডুবি সহায়তা">
-            <div class="row">
-              <div class="col-4">
-                <i class="fa-3x fa-solid fa-ship"></i>
-              </div>
-              <div class="col-8">
-                নৌকাডুবি সহায়তা
-              </div>
-            </div>
+            <i class="fa-3x fa-solid fa-fire-extinguisher"></i>
           </button>
         </div>
       </div>
@@ -202,211 +129,54 @@
   <div id="alertModal" class="overlay hidden">
     <div class="modal text-center">
       <h2 class="mb-4" id="alertTitle">সতর্কতা!</h2>
-      <p id="alertMessage">আপনার অবস্থান এবং জরুরি তথ্য সকল যোগাযোগে প্রেরণ করা হয়েছে।</p>
+      <p id="alertMessage">আপনার অবস্থান এবং জরুরি তথ্য প্রেরণ করা হয়েছে।</p>
       <button class="btn btn-primary mt-3" id="alertCloseBtn">বন্ধ করুন</button>
     </div>
   </div>
 
-  <!-- Native JS Start -->
+  <!-- JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Clear localStorage for testing (remove this in production)
-      // localStorage.removeItem('userInfo');
-      
-      // Check if it's the first visit
       if (!localStorage.getItem('userInfo')) {
-        showSetupOverlay();
-      }
-      
-      function showSetupOverlay() {
-        const overlay = document.getElementById('setupOverlay');
-        if (overlay) {
-          overlay.classList.remove('hidden');
-        } else {
-          console.error("Setup overlay element not found");
-        }
+        document.getElementById('setupOverlay').classList.remove('hidden');
       }
 
-      // Add more contacts button
-      let contactCount = 1;
       document.getElementById('addMoreContacts').addEventListener('click', function() {
-        contactCount++;
+        const contactsContainer = document.getElementById('contactsContainer');
+        const contactCount = contactsContainer.children.length + 1;
         const contactDiv = document.createElement('div');
         contactDiv.className = 'mb-3';
         contactDiv.innerHTML = `
           <label class="form-label">জরুরি যোগাযোগের নম্বর #${contactCount}</label>
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="নাম" id="contactName${contactCount}">
-            <input type="tel" class="form-control" placeholder="ফোন নম্বর" id="contactPhone${contactCount}">
+            <input type="text" class="form-control" placeholder="নাম" required>
+            <input type="tel" class="form-control" placeholder="ফোন নম্বর" required>
           </div>
         `;
-        document.getElementById('contactsContainer').appendChild(contactDiv);
+        contactsContainer.appendChild(contactDiv);
       });
 
-      // Location permission
       document.getElementById('requestLocationBtn').addEventListener('click', function() {
         const locationStatus = document.getElementById('locationStatus');
         locationStatus.textContent = "অনুমতি অনুরোধ করা হচ্ছে...";
         
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
-            function(position) {
+            function() {
               locationStatus.textContent = "অবস্থান অনুমতি গৃহীত হয়েছে";
-              locationStatus.className = "mt-2 text-success";
-              document.getElementById('requestLocationBtn').classList.add('btn-success');
-              document.getElementById('requestLocationBtn').classList.remove('btn-primary');
-              document.getElementById('requestLocationBtn').innerHTML = '<i class="fa-solid fa-check pe-2"></i>অনুমতি গৃহীত হয়েছে';
+              locationStatus.classList.add('text-success');
             },
-            function(error) {
+            function() {
               locationStatus.textContent = "অবস্থান অনুমতি প্রত্যাখ্যান করা হয়েছে";
-              locationStatus.className = "mt-2 text-danger";
+              locationStatus.classList.add('text-danger');
             }
           );
         } else {
           locationStatus.textContent = "আপনার ব্রাউজার জিওলোকেশন সমর্থন করে না";
-          locationStatus.className = "mt-2 text-danger";
         }
       });
-
-      // Save user info
-      document.getElementById('userInfoForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const userName = document.getElementById('userName').value;
-        
-        const contacts = [];
-        for (let i = 1; i <= contactCount; i++) {
-          const nameField = document.getElementById(`contactName${i}`);
-          const phoneField = document.getElementById(`contactPhone${i}`);
-          
-          if (nameField && phoneField && nameField.value && phoneField.value) {
-            contacts.push({
-              name: nameField.value,
-              phone: phoneField.value
-            });
-          }
-        }
-        
-        const userInfo = {
-          name: userName,
-          contacts: contacts
-        };
-        
-        localStorage.setItem('userInfo', JSON.stringify(userInfo));
-        document.getElementById('setupOverlay').classList.add('hidden');
-      });
-
-      // Edit contacts button
-      document.getElementById('editContactsBtn').addEventListener('click', function() {
-        // Populate the form with existing data
-        const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
-        
-        if (userInfo.name) {
-          document.getElementById('userName').value = userInfo.name;
-        }
-        
-        // Clear existing contact fields
-        document.getElementById('contactsContainer').innerHTML = '';
-        
-        // Add contact fields
-        if (userInfo.contacts && userInfo.contacts.length) {
-          contactCount = 0;
-          userInfo.contacts.forEach((contact, index) => {
-            contactCount++;
-            const contactDiv = document.createElement('div');
-            contactDiv.className = 'mb-3';
-            contactDiv.innerHTML = `
-              <label class="form-label">জরুরি যোগাযোগের নম্বর #${contactCount}</label>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="নাম" id="contactName${contactCount}" value="${contact.name}" required>
-                <input type="tel" class="form-control" placeholder="ফোন নম্বর" id="contactPhone${contactCount}" value="${contact.phone}" required>
-              </div>
-            `;
-            document.getElementById('contactsContainer').appendChild(contactDiv);
-          });
-        } else {
-          // Add at least one empty contact field
-          contactCount = 1;
-          const contactDiv = document.createElement('div');
-          contactDiv.className = 'mb-3';
-          contactDiv.innerHTML = `
-            <label class="form-label">জরুরি যোগাযোগের নম্বর #1</label>
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="নাম" id="contactName1" required>
-              <input type="tel" class="form-control" placeholder="ফোন নম্বর" id="contactPhone1" required>
-            </div>
-          `;
-          document.getElementById('contactsContainer').appendChild(contactDiv);
-        }
-        
-        showSetupOverlay();
-      });
-
-      // Emergency buttons
-      const emergencyButtons = document.querySelectorAll('.emergency-btn');
-      emergencyButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const emergencyType = this.getAttribute('data-emergency-type');
-          sendEmergencyAlert(emergencyType);
-        });
-      });
-
-      // Close alert modal
-      document.getElementById('alertCloseBtn').addEventListener('click', function() {
-        document.getElementById('alertModal').classList.add('hidden');
-      });
-
-      // Send emergency alert
-      function sendEmergencyAlert(emergencyType) {
-        const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
-        
-        if (!userInfo.name || !userInfo.contacts || userInfo.contacts.length === 0) {
-          document.getElementById('alertTitle').textContent = 'সেটআপ প্রয়োজন!';
-          document.getElementById('alertMessage').textContent = 'দয়া করে প্রথমে আপনার তথ্য এবং জরুরি যোগাযোগ সেট করুন।';
-          document.getElementById('alertModal').classList.remove('hidden');
-          return;
-        }
-        
-        // Get current location
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            function(position) {
-              const latitude = position.coords.latitude;
-              const longitude = position.coords.longitude;
-              const mapLink = `https://maps.google.com/?q=${latitude},${longitude}`;
-              
-              // Prepare message
-              const message = `জরুরি! ${userInfo.name} এর সাহায্য প্রয়োজন।\nসমস্যার ধরণ: ${emergencyType}\nঅবস্থান: ${mapLink}`;
-              
-              // Send SMS to all contacts
-              userInfo.contacts.forEach(contact => {
-                const smsLink = `sms:${contact.phone}?&body=${encodeURIComponent(message)}`;
-                window.open(smsLink, '_blank');
-              });
-              
-              // Show confirmation
-              document.getElementById('alertTitle').textContent = 'সতর্কতা পাঠানো হয়েছে!';
-              document.getElementById('alertMessage').textContent = `আপনার ${userInfo.contacts.length}টি জরুরি যোগাযোগে সতর্কতা পাঠানো হয়েছে৷`;
-              document.getElementById('alertModal').classList.remove('hidden');
-            },
-            function(error) {
-              document.getElementById('alertTitle').textContent = 'অবস্থান ত্রুটি!';
-              document.getElementById('alertMessage').textContent = 'আপনার অবস্থান পাওয়া যায়নি। অবস্থান অনুমতি প্রদান করুন।';
-              document.getElementById('alertModal').classList.remove('hidden');
-            }
-          );
-        } else {
-          document.getElementById('alertTitle').textContent = 'ব্রাউজার সমর্থন নেই!';
-          document.getElementById('alertMessage').textContent = 'আপনার ব্রাউজার জিওলোকেশন সমর্থন করে না।';
-          document.getElementById('alertModal').classList.remove('hidden');
-        }
-      }
     });
   </script>
-  <!-- Native JS End -->
 
-  <!-- Bootstrap JS Start -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  <!-- Bootstrap JS End -->
 </body>
 </html>
