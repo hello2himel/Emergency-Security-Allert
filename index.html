@@ -39,7 +39,13 @@
       if (!localStorage.getItem('userData')) {
         let name = prompt('আপনার নাম লিখুন:');
         let phoneNumbers = prompt('প্রিয় ফোন নাম্বারগুলো লিখুন, কমা (,) দিয়ে আলাদা করুন:') || '';
-        localStorage.setItem('userData', JSON.stringify({ name, phoneNumbers: phoneNumbers.split(',').filter(Boolean) }));
+
+        const phoneNumberList = phoneNumbers.split(',').map(num => num.trim()).filter(Boolean);
+        if (phoneNumberList.length === 0) {
+          console.error('No valid phone numbers provided.');
+        }
+
+        localStorage.setItem('userData', JSON.stringify({ name, phoneNumbers: phoneNumberList }));
       }
 
       if (navigator.geolocation) {
@@ -49,7 +55,7 @@
             longitude: position.coords.longitude
           }));
         }, error => {
-          console.error('Location access denied or unavailable.');
+          console.error('Location access denied or unavailable. Please enable location access for better functionality.');
         });
       } else {
         console.error('Geolocation is not supported by this browser.');
@@ -57,12 +63,34 @@
 
       const userData = JSON.parse(localStorage.getItem('userData'));
 
-      if (userData && userData.phoneNumbers) {
-        document.getElementById('app').innerHTML = `<div class='container text-center'><h1>স্বাগতম, ${userData.name}!</h1><p>আপনার ফোন নাম্বারগুলো সংরক্ষিত হয়েছে।</p></div>`;
+      if (userData && Array.isArray(userData.phoneNumbers) && userData.phoneNumbers.length > 0) {
+        document.getElementById('app').innerHTML = `
+          <div class='container text-center'>
+            <h1>স্বাগতম, ${userData.name}!</h1>
+            <p>আপনার ফোন নাম্বারগুলো সংরক্ষিত হয়েছে।</p>
+            <button class='btn btn-primary mt-3' onclick='showDashboard()'>ড্যাশবোর্ড দেখুন</button>
+          </div>`;
       } else {
         console.error('Phone numbers are missing or could not be parsed.');
       }
     });
+
+    function showDashboard() {
+      document.getElementById('app').innerHTML = `
+        <div class='container text-center'>
+          <h2>ড্যাশবোর্ড</h2>
+          <button class='btn btn-success m-2'>সাহায্য চান</button>
+          <button class='btn btn-info m-2'>ফোন নাম্বার দেখুন</button>
+          <button class='btn btn-danger m-2' onclick='clearData()'>তথ্য মুছুন</button>
+        </div>`;
+    }
+
+    function clearData() {
+      if (confirm('আপনি কি নিশ্চিত যে সমস্ত তথ্য মুছে ফেলতে চান?')) {
+        localStorage.clear();
+        location.reload();
+      }
+    }
   </script>
 </body>
 </html>
